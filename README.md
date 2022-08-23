@@ -2,7 +2,7 @@
 
 Simple snake game made with raylib!
 
-## TODO:
+### TODO:
 - high score system
 - "you lost!" popup
 - more flexible grid and graphics

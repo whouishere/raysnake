@@ -13,7 +13,7 @@ set(SOURCE_FILES
 
 set(CMAKE_C_FLAGS
     "${CMAKE_C_FLAGS} \
-    -static -Os -std=c99 -Wall -Wextra -pedantic"
+    -static -O3 -Os -std=c99 -Wall -Wextra -pedantic"
 )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
