@@ -23,7 +23,7 @@
 #include <time.h>
 
 Vector2 food;
-int hasFood;
+bool hasFood;
 
 // utility function, used only on foodDraw
 static int random(int min, int max) {
@@ -35,11 +35,11 @@ Vector2* getFoodPosition() {
 	return &food;
 }
 
-int* getHasFood() {
-	return &hasFood;
+bool getHasFood() {
+	return hasFood;
 }
 
-void setHasFood(int newFoodState) {
+void setHasFood(bool newFoodState) {
 	hasFood = newFoodState;
 }
 
@@ -55,5 +55,5 @@ void foodDraw(Vector2* food) {
 				  1 * SCALE - 1, 
 				  FOOD_COLOR);
 	
-	hasFood = 0;
+	hasFood = false;
 }

@@ -1,5 +1,6 @@
 set(SOURCE_FILES
     game.h
+	game.c
     input.h
     input.c
     food.h

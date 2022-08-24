@@ -25,7 +25,7 @@ static char scoreStr[5];
 
 void init() {
 	p_snake = getSnakeBody();
-	setHasFood(1);
+	setHasFood(true);
 
 	p_snake->length = 1;
 	p_snake->pos[0].x = GRID_SIZE / 2.0;
@@ -60,7 +60,7 @@ void draw() {
 		foodDraw(getFoodPosition());
 		snakeDraw(getSnakeBody());
 
-		sprintf(scoreStr, "%d", getScore());
+		sprintf(scoreStr, "%u", getScore());
 		DrawText(scoreStr, 0.25 * SCALE, 0.25 * SCALE, 1 * SCALE, TEXT_COLOR);
 		
 		if (getLost()) {

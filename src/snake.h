@@ -38,15 +38,6 @@ typedef struct SnakeBody {
 
 // returns SnakeBody pointer
 SnakeBody* getSnakeBody();
-// returns score value
-int getScore();
-// returns lost boolean
-int getLost();
-
-// sets score value
-void setScore(int newScore);
-// sets lost boolean
-void setLost(int newLost);
 
 // draws snake into the game. (drawing context must be open)
 void snakeDraw(SnakeBody* snek);

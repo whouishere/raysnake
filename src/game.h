@@ -31,4 +31,16 @@
 #define SNAKE_COLOR      GREEN
 #define FOOD_COLOR       RED
 
+#include <stdbool.h>
+
+// returns current score value
+unsigned int getScore();
+// returns lost state boolean (if player has lost)
+bool getLost();
+
+// sets current score value
+void setScore(unsigned int newScore);
+// sets lost state boolean
+void setLost(bool newLost);
+
 #endif // GAME_H

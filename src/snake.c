@@ -18,10 +18,9 @@
 */
 
 #include "snake.h"
+#include <stdbool.h>
 
 SnakeBody snake;
-int score;
-int lost;
 
 typedef enum Direction {
 	UP = 1, 
@@ -32,22 +31,6 @@ typedef enum Direction {
 
 SnakeBody* getSnakeBody() {
 	return &snake;
-}
-
-int getScore() {
-	return score;
-}
-
-int getLost() {
-	return lost;
-}
-
-void setScore(int newScore) {
-	score = newScore;
-}
-
-void setLost(int newLost) {
-	lost = newLost;
 }
 
 void snakeDraw(SnakeBody* snek) {
@@ -80,8 +63,8 @@ void snakeMovement(SnakeBody* snek) {
 	Vector2* food = getFoodPosition();
 
 	if (snek->pos[0].x == food->x && snek->pos[0].y == food->y) {
-		setHasFood(1);
-		score++;
+		setHasFood(true);
+		setScore(getScore() + 1);
 		snek->length++;
 	}
 	
@@ -90,7 +73,7 @@ void snakeMovement(SnakeBody* snek) {
 		snek->pos[i].y = snek->pos[i - 1].y;
 		
 		if (snek->pos[i].x == food->x && snek->pos[i].y == food->y)
-			setHasFood(1);
+			setHasFood(true);
 	}
 	
 	switch (snek->dir)
@@ -117,6 +100,6 @@ void snakeMovement(SnakeBody* snek) {
 		snek->pos[0].x == 0 || 
 		snek->pos[0].y == GRID_SIZE || 
 		snek->pos[0].y == 0) {
-		lost = 1;
+		setLost(true);
 	}
 }
