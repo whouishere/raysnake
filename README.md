@@ -1,6 +1,6 @@
 # RaySnake
 
-Simple snake game made with raylib!
+Simple snake game made with [raylib][raylib]!
 
 ### TODO:
 - high score system
@@ -17,7 +17,6 @@ Simple snake game made with raylib!
 If you have these simple requirements, use
 
 ```
-mkdir build
 cmake -B build/ -S .
 cmake --build build/
 ```
@@ -29,6 +28,11 @@ Then the built binary will be on the `build` directory.
 Have fun! :)
 
 ## License
-RaySnake is licensed under [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.html) or later. You may freely copy, distribute and modify it. Any modifications must also be distributed under GPL. You can read the [COPYING](/COPYING) file for more information.
+RaySnake is licensed under [GPL 3.0][GPLv3] or later. You may freely copy, distribute and modify it. Any modifications must also be distributed under GPL. You can read the [COPYING](/COPYING) file for more information.
 
-RaySnake uses [raylib](https://github.com/raysan5/raylib), which is licensed under [Zlib](https://github.com/raysan5/raylib/blob/master/LICENSE).
+RaySnake uses [raylib][raylib repo], which is licensed under [Zlib][raylib license].
+
+[raylib]: https://www.raylib.com/
+[GPLv3]: https://www.gnu.org/licenses/gpl-3.0.html
+[raylib repo]: https://github.com/raysan5/raylib
+[raylib license]: https://github.com/raysan5/raylib/blob/master/LICENSE
