@@ -28,8 +28,11 @@
 #define WINDOW_BG_COLOR  GRAY
 #define GRID_COLOR       BLACK
 #define TEXT_COLOR       BLUE
+#define LOST_COLOR       RED
 #define SNAKE_COLOR      GREEN
 #define FOOD_COLOR       RED
+
+#define LOST_TEXT    "You Lost!"
 
 #include <stdbool.h>
 

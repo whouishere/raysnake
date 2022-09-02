@@ -1,14 +1,9 @@
 set(SOURCE_FILES
-    game.h
-	game.c
-    input.h
-    input.c
-    food.h
-    food.c
-    snake.h
-    snake.c
-    drawing.h
-    drawing.c
+    game.h       game.c
+    input.h      input.c
+    food.h       food.c
+    snake.h      snake.c
+    drawing.h    drawing.c
     main.c
 )
 
