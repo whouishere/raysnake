@@ -28,7 +28,7 @@ Then the built binary will be on the `build` directory.
 Have fun! :)
 
 ## License
-RaySnake is licensed under [GPL 3.0][GPLv3] or later. You may freely copy, distribute and modify it. Any modifications must also be distributed under GPL. You can read the [COPYING](/COPYING) file for more information.
+RaySnake is licensed under [GPL 3.0][GPLv3] or later. You may freely copy, distribute and modify it. Any modifications must also be distributed under GPL. You can read the [COPYING](./COPYING) file for more information.
 
 RaySnake uses [raylib][raylib repo], which is licensed under [Zlib][raylib license].
 
