@@ -22,8 +22,6 @@
 
 #include "raylib.h"
 
-#include <stdio.h>
-
 #include "game.h"
 #include "snake.h"
 

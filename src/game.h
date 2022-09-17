@@ -41,6 +41,8 @@
 
 // returns current score value
 unsigned int getScore();
+// returns score as string
+const char* getScoreStr();
 // returns lost state boolean (if player has lost)
 bool getLost();
 

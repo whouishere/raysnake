@@ -19,11 +19,18 @@
 
 #include "game.h"
 
+#include <stdio.h>
+
 unsigned int score;
+char scoreStr[5];
 bool lost;
 
 unsigned int getScore() {
 	return score;
+}
+
+const char* getScoreStr() {
+	return scoreStr;
 }
 
 bool getLost() {
@@ -32,6 +39,7 @@ bool getLost() {
 
 void setScore(unsigned int newScore) {
 	score = newScore;
+	sprintf(scoreStr, "%u", getScore());
 }
 
 void setLost(bool newLost) {

@@ -18,11 +18,9 @@
 */
 
 #include "drawing.h"
-#include "raylib.h"
 
 static SnakeBody* p_snake;
 static int frameCount = 0;
-static char scoreStr[5];
 
 void init() {
 	p_snake = getSnakeBody();
@@ -60,8 +58,7 @@ void draw() {
 		foodDraw(getFoodPosition());
 		snakeDraw(getSnakeBody());
 
-		sprintf(scoreStr, "%u", getScore());
-		DrawText(scoreStr, 0.25 * SCALE, 0.25 * SCALE, 1 * SCALE, TEXT_COLOR);
+		DrawText(getScoreStr(), 0.25 * SCALE, 0.25 * SCALE, 1 * SCALE, TEXT_COLOR);
 		
 		if (getLost()) {
 			lostDraw();

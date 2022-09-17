@@ -73,6 +73,7 @@ void snakeMovement(SnakeBody* snek) {
 		snek->pos[i].x = snek->pos[i - 1].x;
 		snek->pos[i].y = snek->pos[i - 1].y;
 		
+		// if food is somewhere inside the snake body, make it roll the food again (but not eat it)
 		if (snek->pos[i].x == food->x && snek->pos[i].y == food->y)
 			setHasFood(true);
 	}

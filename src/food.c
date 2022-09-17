@@ -18,7 +18,9 @@
 */
 
 #include "food.h"
+#include "raylib.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -45,8 +47,18 @@ void setHasFood(bool newFoodState) {
 
 void foodDraw(Vector2* food) {
 	if (hasFood) {
-		food->x = random(1, GRID_SIZE - 2);
-		food->y = random(1, GRID_SIZE - 2);
+		Vector2 newFood;
+		newFood.x = random(1, GRID_SIZE - 2);
+		newFood.y = random(1, GRID_SIZE - 2);
+		
+		// avoids spawning the food at the last position again
+		if (newFood.x == food->x && newFood.y == food->y) {
+			// it returns without drawing nor unsetting hasFood, until it gets a different position
+			printf("same food position as before!");
+			return;
+		}
+
+		*food = newFood;
 	}
 
 	DrawRectangle(food->x * SCALE, 
