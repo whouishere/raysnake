@@ -24,16 +24,17 @@
 
 #include <stdbool.h>
 
-#define GRID_SIZE 12
-#define WIN_SIZE 600
-#define SCALE 50
-#define SNAKE_START (Vector2){ .x = GRID_SIZE / 2.0, .y = GRID_SIZE / 2.0 }
+#define GRID_SIZE   12
+#define WIN_SIZE    600
+#define SCALE       50
+#define SNAKE_START (Vector2){ .x = GRID_SIZE / 2.0f, .y = GRID_SIZE / 2.0f }
 
 #define BACKGROUND_COLOR RAYWHITE
 #define WINDOW_BG_COLOR  GRAY
 #define GRID_COLOR       BLACK
 #define TEXT_COLOR       BLUE
 #define LOST_COLOR       RED
+#define LOST_BOX_COLOR   BLACK
 #define SNAKE_COLOR      GREEN
 #define FOOD_COLOR       RED
 

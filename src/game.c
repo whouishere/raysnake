@@ -18,6 +18,7 @@
 */
 
 #include "game.h"
+#include "raylib.h"
 
 #include <stdio.h>
 
@@ -51,8 +52,13 @@ void lostDraw() {
 	text.x = MeasureText(LOST_TEXT, 1 * SCALE);
 	text.y = 1 * SCALE;
 	
+	const Vector2 rectSize = { .x = 5 * SCALE, .y = 2 * SCALE };
+	DrawRectangle((WIN_SIZE / 2.0f) - (rectSize.x / 2), (WIN_SIZE / 2.0f) - (rectSize.y / 2), 
+				  rectSize.x, rectSize.y, 
+				  ColorAlpha(LOST_BOX_COLOR, 0.85f));
+	
 	DrawText(LOST_TEXT, 
-			 (WIN_SIZE / 2.0) - (text.x / 2), 
-			 (WIN_SIZE / 2.0) - (text.y / 2), 
+			 (WIN_SIZE / 2.0f) - (text.x / 2), 
+			 (WIN_SIZE / 2.0f) - (text.y / 2), 
 			 1 * SCALE, LOST_COLOR);
 }
