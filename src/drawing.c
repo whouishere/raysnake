@@ -18,6 +18,7 @@
 */
 
 #include "drawing.h"
+#include "raylib.h"
 
 static SnakeBody* p_snake;
 static int frameCount = 0;
@@ -28,8 +29,7 @@ void init() {
 	setHasFood(true);
 
 	p_snake->length = 1;
-	p_snake->pos[0].x = GRID_SIZE / 2.0;
-	p_snake->pos[0].y = GRID_SIZE / 2.0;
+	p_snake->pos[0] = SNAKE_START;
 }
 
 void update() {
@@ -64,8 +64,8 @@ void draw() {
 		DrawText(scoreStr, 0.25 * SCALE, 0.25 * SCALE, 1 * SCALE, TEXT_COLOR);
 		
 		if (getLost()) {
-			drawLost();
-			
+			lostDraw();
+
 			EndDrawing();
 			return;
 		}

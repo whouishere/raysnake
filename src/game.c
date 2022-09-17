@@ -30,7 +30,15 @@ bool getLost() {
 	return lost;
 }
 
-void drawLost() {
+void setScore(unsigned int newScore) {
+	score = newScore;
+}
+
+void setLost(bool newLost) {
+	lost = newLost;
+}
+
+void lostDraw() {
 	Vector2 text;
 	text.x = MeasureText(LOST_TEXT, 1 * SCALE);
 	text.y = 1 * SCALE;
@@ -39,12 +47,4 @@ void drawLost() {
 			 (WIN_SIZE / 2.0) - (text.x / 2), 
 			 (WIN_SIZE / 2.0) - (text.y / 2), 
 			 1 * SCALE, LOST_COLOR);
-}
-
-void setScore(unsigned int newScore) {
-	score = newScore;
-}
-
-void setLost(bool newLost) {
-	lost = newLost;
 }

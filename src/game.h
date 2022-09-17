@@ -20,9 +20,14 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "raylib.h"
+
+#include <stdbool.h>
+
 #define GRID_SIZE 12
 #define WIN_SIZE 600
 #define SCALE 50
+#define SNAKE_START (Vector2){ .x = GRID_SIZE / 2.0, .y = GRID_SIZE / 2.0 }
 
 #define BACKGROUND_COLOR RAYWHITE
 #define WINDOW_BG_COLOR  GRAY
@@ -32,11 +37,7 @@
 #define SNAKE_COLOR      GREEN
 #define FOOD_COLOR       RED
 
-#define LOST_TEXT    "You Lost!"
-
-#include "raylib.h"
-
-#include <stdbool.h>
+#define LOST_TEXT        "You Lost!"
 
 // returns current score value
 unsigned int getScore();
@@ -48,6 +49,7 @@ void setScore(unsigned int newScore);
 // sets lost state boolean
 void setLost(bool newLost);
 
-void drawLost();
+// draws "you lost!" text. (draw context must be open)
+void lostDraw();
 
 #endif // GAME_H
