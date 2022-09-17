@@ -30,6 +30,17 @@ bool getLost() {
 	return lost;
 }
 
+void drawLost() {
+	Vector2 text;
+	text.x = MeasureText(LOST_TEXT, 1 * SCALE);
+	text.y = 1 * SCALE;
+	
+	DrawText(LOST_TEXT, 
+			 (WIN_SIZE / 2.0) - (text.x / 2), 
+			 (WIN_SIZE / 2.0) - (text.y / 2), 
+			 1 * SCALE, LOST_COLOR);
+}
+
 void setScore(unsigned int newScore) {
 	score = newScore;
 }

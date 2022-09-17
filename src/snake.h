@@ -22,6 +22,8 @@
 
 #include "raylib.h"
 
+#include <stdbool.h>
+
 #include "game.h"
 #include "input.h"
 #include "food.h"

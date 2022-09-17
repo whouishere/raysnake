@@ -34,6 +34,8 @@
 
 #define LOST_TEXT    "You Lost!"
 
+#include "raylib.h"
+
 #include <stdbool.h>
 
 // returns current score value
@@ -45,5 +47,7 @@ bool getLost();
 void setScore(unsigned int newScore);
 // sets lost state boolean
 void setLost(bool newLost);
+
+void drawLost();
 
 #endif // GAME_H

@@ -18,7 +18,6 @@
 */
 
 #include "drawing.h"
-#include "raylib.h"
 
 static SnakeBody* p_snake;
 static int frameCount = 0;
@@ -65,15 +64,8 @@ void draw() {
 		DrawText(scoreStr, 0.25 * SCALE, 0.25 * SCALE, 1 * SCALE, TEXT_COLOR);
 		
 		if (getLost()) {
-			Vector2 text;
-			text.x = MeasureText(LOST_TEXT, 1 * SCALE);
-			text.y = 1 * SCALE;
+			drawLost();
 			
-			DrawText(LOST_TEXT, 
-					 (WIN_SIZE / 2.0) - (text.x / 2), 
-					 (WIN_SIZE / 2.0) - (text.y / 2), 
-					 1 * SCALE, LOST_COLOR);
-
 			EndDrawing();
 			return;
 		}

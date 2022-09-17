@@ -18,7 +18,6 @@
 */
 
 #include "snake.h"
-#include <stdbool.h>
 
 SnakeBody snake;
 

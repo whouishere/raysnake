@@ -20,8 +20,9 @@
 #ifndef DRAWING_H
 #define DRAWING_H
 
-#include <stdio.h>
 #include "raylib.h"
+
+#include <stdio.h>
 
 #include "game.h"
 #include "snake.h"
