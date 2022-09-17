@@ -61,12 +61,14 @@ void snakeControls(SnakeBody* snek) {
 void snakeMovement(SnakeBody* snek) {
 	Vector2* food = getFoodPosition();
 
+	// check if head is inside food
 	if (snek->pos[0].x == food->x && snek->pos[0].y == food->y) {
 		setHasFood(true);
 		setScore(getScore() + 1);
 		snek->length++;
 	}
 	
+	// move snake body
 	for (int i = snek->length - 1; i > 0; i--) {
 		snek->pos[i].x = snek->pos[i - 1].x;
 		snek->pos[i].y = snek->pos[i - 1].y;
@@ -75,30 +77,32 @@ void snakeMovement(SnakeBody* snek) {
 			setHasFood(true);
 	}
 	
+	// move snake head
 	switch (snek->dir)
 	{
 		case UP:
-			if (snek->pos[0].y != 0)
+			if (snek->pos[0].y != -1)
 				snek->pos[0].y--;
 			break;
 		case DOWN:
-			if (snek->pos[0].y != GRID_SIZE - 1)
+			if (snek->pos[0].y != GRID_SIZE)
 				snek->pos[0].y++;
 			break;
 		case LEFT:
-			if (snek->pos[0].x != 0)
+			if (snek->pos[0].x != -1)
 				snek->pos[0].x--;
 			break;
 		case RIGHT:
-			if (snek->pos[0].x != GRID_SIZE - 1)
+			if (snek->pos[0].x != GRID_SIZE)
 				snek->pos[0].x++;
 			break;
 	}
-	
+
+	// if head hit wall
 	if (snek->pos[0].x == GRID_SIZE || 
-		snek->pos[0].x == 0 || 
+		snek->pos[0].x == -1 || 
 		snek->pos[0].y == GRID_SIZE || 
-		snek->pos[0].y == 0) {
+		snek->pos[0].y == -1) {
 		setLost(true);
 	}
 }
