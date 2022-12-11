@@ -34,11 +34,14 @@
 #define GRID_COLOR       BLACK
 #define TEXT_COLOR       BLUE
 #define LOST_COLOR       RED
+#define RECORD_COLOR     GOLD
 #define LOST_BOX_COLOR   BLACK
 #define SNAKE_COLOR      GREEN
 #define FOOD_COLOR       RED
 
 #define LOST_TEXT        "You Lost!"
+#define HIGHSCORE_TEXT   "High Score: "
+#define RECORD_TEXT      "New Record!"
 
 // returns current score value
 unsigned int getScore();

@@ -3,6 +3,7 @@ set(SOURCE_FILES
     input.h      input.c
     food.h       food.c
     snake.h      snake.c
+	highscore.h  highscore.c
     drawing.h    drawing.c
     main.c
 )

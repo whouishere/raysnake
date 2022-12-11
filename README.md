@@ -3,9 +3,7 @@
 Simple snake game made with [raylib][raylib]!
 
 ### TODO:
-- high score system
 - simple, small, and fast high score file encryption
-- "you lost!" popup
 - multi-threaded
 - more flexible grid and graphics
 - gameplay twist
