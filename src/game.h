@@ -44,11 +44,11 @@
 #define RECORD_TEXT      "New Record!"
 
 // returns current score value
-unsigned int getScore();
+unsigned int getScore(void);
 // returns score as string
-const char* getScoreStr();
+const char* getScoreStr(void);
 // returns lost state boolean (if player has lost)
-bool getLost();
+bool getLost(void);
 
 // sets current score value
 void setScore(unsigned int newScore);
@@ -56,6 +56,6 @@ void setScore(unsigned int newScore);
 void setLost(bool newLost);
 
 // draws "you lost!" text. (draw context must be open)
-void lostDraw();
+void lostDraw(void);
 
 #endif // GAME_H

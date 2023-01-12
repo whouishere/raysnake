@@ -19,12 +19,11 @@
 
 #include "highscore.h"
 
-#include <stdio.h>
-#include <stdbool.h>
-#include <string.h>
 #include <errno.h>
+#include <stdio.h>
+#include <string.h>
 
-unsigned int readHighScore() {
+unsigned int readHighScore(void) {
 	FILE *fptr;
 	fptr = fopen(SAVE_FILE, "r");
 	if (!fptr) {

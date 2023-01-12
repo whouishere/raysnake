@@ -39,7 +39,7 @@ typedef struct SnakeBody {
 } SnakeBody;
 
 // returns SnakeBody pointer
-SnakeBody* getSnakeBody();
+SnakeBody* getSnakeBody(void);
 
 // draws snake into the game. (drawing context must be open)
 void snakeDraw(SnakeBody* snek);

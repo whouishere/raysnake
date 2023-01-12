@@ -19,7 +19,7 @@
 
 #include "drawing.h"
 
-int main() {
+int main(void) {
 	InitWindow(WIN_SIZE, WIN_SIZE, "RaySnake");
 	int current_monitor = GetCurrentMonitor();
 	SetWindowPosition((GetMonitorWidth(current_monitor) / 2) - (WIN_SIZE / 2), 

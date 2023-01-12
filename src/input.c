@@ -21,11 +21,11 @@
 
 InputKeys keys;
 
-InputKeys getInputKeys() {
+InputKeys getInputKeys(void) {
 	return keys;
 }
 
-void processInput() {
+void processInput(void) {
 	keys.up    = IsKeyDown(KEY_UP);
 	keys.down  = IsKeyDown(KEY_DOWN);
 	keys.left  = IsKeyDown(KEY_LEFT);

@@ -28,15 +28,15 @@ char scoreStr[5];
 bool lost;
 bool newRecord = false;
 
-unsigned int getScore() {
+unsigned int getScore(void) {
 	return score;
 }
 
-const char* getScoreStr() {
+const char* getScoreStr(void) {
 	return scoreStr;
 }
 
-bool getLost() {
+bool getLost(void) {
 	return lost;
 }
 
@@ -49,7 +49,7 @@ void setLost(bool newLost) {
 	lost = newLost;
 }
 
-void lostDraw() {
+void lostDraw(void) {
 	Vector2 lostText;
 	Vector2 recordText;
 	const int lostFont = 1 * SCALE;

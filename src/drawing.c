@@ -22,7 +22,7 @@
 static SnakeBody* p_snake;
 static int frameCount = 0;
 
-void init() {
+void init(void) {
 	p_snake = getSnakeBody();
 	setHasFood(true);
 
@@ -30,7 +30,7 @@ void init() {
 	p_snake->pos[0] = SNAKE_START;
 }
 
-void update() {
+void update(void) {
 	frameCount++;
 
 	processInput();
@@ -43,7 +43,7 @@ void update() {
 	}
 }
 
-void draw() {
+void draw(void) {
 	BeginDrawing();
 		ClearBackground(RAYWHITE);
 

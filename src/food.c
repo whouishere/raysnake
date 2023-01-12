@@ -33,11 +33,11 @@ static int random(int min, int max) {
 	return min + rand() % (max - min);
 }
 
-Vector2* getFoodPosition() {
+Vector2* getFoodPosition(void) {
 	return &food;
 }
 
-bool getHasFood() {
+bool getHasFood(void) {
 	return hasFood;
 }
 

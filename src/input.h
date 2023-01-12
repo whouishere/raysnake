@@ -29,8 +29,8 @@ typedef struct InputKeys {
 	bool up, down, left, right;
 } InputKeys;
 
-InputKeys getInputKeys();
+InputKeys getInputKeys(void);
 
-void processInput();
+void processInput(void);
 
 #endif // INPUT_H

@@ -25,8 +25,8 @@
 #include "game.h"
 #include "snake.h"
 
-void init();
-void update();
-void draw();
+void init(void);
+void update(void);
+void draw(void);
 
 #endif // DRAWING_H

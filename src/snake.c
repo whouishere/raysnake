@@ -28,7 +28,7 @@ typedef enum Direction {
 	RIGHT = 2
 } Direction;
 
-SnakeBody* getSnakeBody() {
+SnakeBody* getSnakeBody(void) {
 	return &snake;
 }
 
