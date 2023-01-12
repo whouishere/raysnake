@@ -1,8 +1,9 @@
-#include "game.h"
-#include "highscore.h"
 #include "raylib.h"
 
 #include <stdio.h>
+
+#include "game.h"
+#include "highscore.h"
 
 unsigned int score;
 char scoreStr[5];

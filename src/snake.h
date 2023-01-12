@@ -3,12 +3,6 @@
 
 #include "raylib.h"
 
-#include <stdbool.h>
-
-#include "game.h"
-#include "input.h"
-#include "food.h"
-
 // snake body maximum length
 #define MAX_LENGTH 256
 

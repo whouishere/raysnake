@@ -5,8 +5,6 @@
 
 #include <stdbool.h>
 
-#include "game.h"
-
 // draws and updates food position. (drawing context must be open)
 void foodDraw(Vector2* food);
 

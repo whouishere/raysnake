@@ -1,5 +1,7 @@
-#include "drawing.h"
 #include "raylib.h"
+
+#include "drawing.h"
+#include "game.h"
 
 int main(void) {
 	InitWindow(WIN_SIZE, WIN_SIZE, "RaySnake");

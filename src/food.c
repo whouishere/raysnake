@@ -1,9 +1,12 @@
 #include "food.h"
+
 #include "raylib.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+#include "game.h"
 
 Vector2 food;
 bool hasFood;

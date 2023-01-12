@@ -1,5 +1,12 @@
 #include "drawing.h"
 
+#include "raylib.h"
+
+#include "game.h"
+#include "input.h"
+#include "snake.h"
+#include "food.h"
+
 static SnakeBody* p_snake;
 static int frameCount = 0;
 
