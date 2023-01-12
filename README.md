@@ -21,6 +21,8 @@ cmake -B build/ -S .
 cmake --build build/
 ```
 
+If you want a debug build, pass `-DCMAKE_BUILD_TYPE=Debug` to the first `cmake` command.
+
 If you don't have raylib 4.0 installed for CMake, it will fetch the raylib source from GitHub and build it automatically for you.
 
 Then the built binary will be on the `build` directory.
