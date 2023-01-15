@@ -4,6 +4,7 @@
 
 #include "game.h"
 #include "input.h"
+#include "highscore.h"
 #include "snake.h"
 #include "food.h"
 
@@ -27,6 +28,15 @@ void update(void) {
 		snakeControls(p_snake);
 		if (frameCount % 15 == 0) {
 			snakeMovement(p_snake);
+		}
+	} else if (!isScoreLoaded()) {
+		unsigned int highscore = readHighScore();
+		unsigned int score = getScore();
+		
+		// save if there's a new record
+		if (score > highscore) {
+			saveHighScore(score);
+			setNewRecord(true);
 		}
 	}
 }

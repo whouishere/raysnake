@@ -5,7 +5,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+bool scoreLoaded = false;
+
+bool isScoreLoaded(void) {
+	return scoreLoaded;
+}
+
 unsigned int readHighScore(void) {
+	scoreLoaded = true;
+
+	if (!FileExists(SAVE_FILE)) {
+		return 0;
+	}
+
 	const char* file_str = LoadFileText(SAVE_FILE);
 
 	return (strtoul(file_str, NULL, 10));

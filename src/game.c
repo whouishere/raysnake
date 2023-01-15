@@ -33,6 +33,10 @@ void setLost(bool newLost) {
 	lost = newLost;
 }
 
+void setNewRecord(bool isRecord) {
+	newRecord = isRecord;
+}
+
 void lostDraw(void) {
 	Vector2 lostText;
 	Vector2 recordText;
@@ -40,22 +44,6 @@ void lostDraw(void) {
 	const int recordFont = 0.5f * SCALE;
 	lostText.x = MeasureText(LOST_TEXT, lostFont);
 	lostText.y = lostFont;
-
-	// saves/loads high score save
-	if (!newRecord) {
-		if (FileExists(SAVE_FILE)) {
-			// FIXME: save file is read on every frame if
-			// there's not a new record. nasty.
-			unsigned int highscore = readHighScore();
-			if (score > highscore) {
-				saveHighScore(score);
-				newRecord = true;
-			}
-		} else {
-			saveHighScore(score);
-			newRecord = true;
-		}
-	}
 
 	const Vector2 rectSize = { .x = 5 * SCALE, .y = 2 * SCALE };
 	DrawRectangle((WIN_SIZE / 2.0f) - (rectSize.x / 2), (WIN_SIZE / 2.0f) - (rectSize.y / 2), 

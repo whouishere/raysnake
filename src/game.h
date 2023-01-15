@@ -35,6 +35,8 @@ bool getLost(void);
 void setScore(unsigned int newScore);
 // sets lost state boolean
 void setLost(bool newLost);
+// sets new record state boolean
+void setNewRecord(bool isRecord);
 
 // draws "you lost!" text. (draw context must be open)
 void lostDraw(void);
