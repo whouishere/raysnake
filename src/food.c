@@ -4,8 +4,8 @@
 
 #include "game.h"
 
-Vector2 food;
-bool hasFood;
+static Vector2 food;
+static bool hasFood;
 
 #if DEBUG
 // maybe find a better name/implementation?

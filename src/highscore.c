@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-bool scoreLoaded = false;
+static bool scoreLoaded = false;
 
 bool isScoreLoaded(void) {
 	return scoreLoaded;

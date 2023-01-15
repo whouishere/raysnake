@@ -6,7 +6,7 @@
 #include "input.h"
 #include "food.h"
 
-SnakeBody snake;
+static SnakeBody snake;
 
 typedef enum Direction {
 	UP = 1, 

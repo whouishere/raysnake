@@ -7,10 +7,10 @@
 
 #define SCORE_BUFFER 5
 
-unsigned int score;
-char scoreStr[SCORE_BUFFER];
-bool lost;
-bool newRecord = false;
+static unsigned int score;
+static char scoreStr[SCORE_BUFFER];
+static bool lost = false;
+static bool newRecord = false;
 
 unsigned int getScore(void) {
 	return score;

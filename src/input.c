@@ -1,6 +1,6 @@
 #include "input.h"
 
-InputKeys keys;
+static InputKeys keys;
 
 InputKeys getInputKeys(void) {
 	return keys;
