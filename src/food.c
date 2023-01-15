@@ -24,7 +24,7 @@ void setHasFood(bool newFoodState) {
 	hasFood = newFoodState;
 }
 
-void foodDraw(Vector2* food) {
+void foodDraw(void) {
 	if (hasFood) {
 		Vector2 newFood;
 		newFood.x = GetRandomValue(1, GRID_SIZE - 2);
@@ -32,8 +32,8 @@ void foodDraw(Vector2* food) {
 		
 		// TODO: write test on how many times this happens
 		// if food is found at the same spot as before, randomize it again.
-		if (newFood.x == food->x && newFood.y == food->y) {
-			foodDraw(food);
+		if (newFood.x == food.x && newFood.y == food.y) {
+			foodDraw();
 			return;
 		}
 
@@ -44,11 +44,11 @@ void foodDraw(Vector2* food) {
 		}
 		#endif
 
-		*food = newFood;
+		food = newFood;
 	}
 
-	DrawRectangle(food->x * SCALE, 
-				  food->y * SCALE, 
+	DrawRectangle(food.x * SCALE, 
+				  food.y * SCALE, 
 				  1 * SCALE - 1, 
 				  1 * SCALE - 1, 
 				  FOOD_COLOR);

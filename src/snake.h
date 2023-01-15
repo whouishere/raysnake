@@ -17,8 +17,8 @@ typedef struct SnakeBody {
 SnakeBody* getSnakeBody(void);
 
 // draws snake into the game. (drawing context must be open)
-void snakeDraw(SnakeBody* snek);
-void snakeControls(SnakeBody* snek);
-void snakeMovement(SnakeBody* snek);
+void snakeDraw(void);
+void snakeControls(void);
+void snakeMovement(void);
 
 #endif // SNAKE_H

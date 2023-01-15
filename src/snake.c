@@ -19,78 +19,78 @@ SnakeBody* getSnakeBody(void) {
 	return &snake;
 }
 
-void snakeDraw(SnakeBody* snek) {
-	for (int i = 0; i < snek->length; i++) {
-		DrawRectangle(snek->pos[i].x * SCALE, 
-					  snek->pos[i].y * SCALE, 
+void snakeDraw(void) {
+	for (int i = 0; i < snake.length; i++) {
+		DrawRectangle(snake.pos[i].x * SCALE, 
+					  snake.pos[i].y * SCALE, 
 					  1 * SCALE - 1, 
 					  1 * SCALE - 1, 
 					  SNAKE_COLOR);
 	}
 }
 
-void snakeControls(SnakeBody* snek) {
+void snakeControls(void) {
 	InputKeys snekControlKeys = getInputKeys();
 
-	if (snekControlKeys.up && snek->dir != DOWN)
-		snek->dir = UP;
+	if (snekControlKeys.up && snake.dir != DOWN)
+		snake.dir = UP;
 	
-	if (snekControlKeys.down && snek->dir != UP)
-		snek->dir = DOWN;
+	if (snekControlKeys.down && snake.dir != UP)
+		snake.dir = DOWN;
 	
-	if (snekControlKeys.left && snek->dir != RIGHT)
-		snek->dir = LEFT;
+	if (snekControlKeys.left && snake.dir != RIGHT)
+		snake.dir = LEFT;
 	
-	if (snekControlKeys.right && snek->dir != LEFT)
-		snek->dir = RIGHT;
+	if (snekControlKeys.right && snake.dir != LEFT)
+		snake.dir = RIGHT;
 }
 
-void snakeMovement(SnakeBody* snek) {
+void snakeMovement(void) {
 	Vector2* food = getFoodPosition();
 
 	// check if head is inside food
-	if (snek->pos[0].x == food->x && snek->pos[0].y == food->y) {
+	if (snake.pos[0].x == food->x && snake.pos[0].y == food->y) {
 		setHasFood(true);
 		setScore(getScore() + 1);
-		snek->length++;
+		snake.length++;
 	}
 	
 	// move snake body
-	for (int i = snek->length - 1; i > 0; i--) {
-		snek->pos[i].x = snek->pos[i - 1].x;
-		snek->pos[i].y = snek->pos[i - 1].y;
+	for (int i = snake.length - 1; i > 0; i--) {
+		snake.pos[i].x = snake.pos[i - 1].x;
+		snake.pos[i].y = snake.pos[i - 1].y;
 		
 		// if food is somewhere inside the snake body, make it roll the food again (but not eat it)
-		if (snek->pos[i].x == food->x && snek->pos[i].y == food->y)
+		if (snake.pos[i].x == food->x && snake.pos[i].y == food->y)
 			setHasFood(true);
 	}
 	
 	// move snake head
-	switch (snek->dir)
+	switch (snake.dir)
 	{
 		case UP:
-			if (snek->pos[0].y != -1)
-				snek->pos[0].y--;
+			if (snake.pos[0].y != -1)
+				snake.pos[0].y--;
 			break;
 		case DOWN:
-			if (snek->pos[0].y != GRID_SIZE)
-				snek->pos[0].y++;
+			if (snake.pos[0].y != GRID_SIZE)
+				snake.pos[0].y++;
 			break;
 		case LEFT:
-			if (snek->pos[0].x != -1)
-				snek->pos[0].x--;
+			if (snake.pos[0].x != -1)
+				snake.pos[0].x--;
 			break;
 		case RIGHT:
-			if (snek->pos[0].x != GRID_SIZE)
-				snek->pos[0].x++;
+			if (snake.pos[0].x != GRID_SIZE)
+				snake.pos[0].x++;
 			break;
 	}
 
 	// if head hit wall
-	if (snek->pos[0].x == GRID_SIZE || 
-		snek->pos[0].x == -1 || 
-		snek->pos[0].y == GRID_SIZE || 
-		snek->pos[0].y == -1) {
+	if (snake.pos[0].x == GRID_SIZE || 
+		snake.pos[0].x == -1 || 
+		snake.pos[0].y == GRID_SIZE || 
+		snake.pos[0].y == -1) {
 		setLost(true);
 	}
 }

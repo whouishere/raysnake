@@ -8,13 +8,12 @@
 #include "snake.h"
 #include "food.h"
 
-static SnakeBody* p_snake;
 static int frameCount = 0;
 
 void init(void) {
-	p_snake = getSnakeBody();
 	setHasFood(true);
 
+	SnakeBody *p_snake = getSnakeBody();
 	p_snake->length = 1;
 	p_snake->pos[0] = SNAKE_START;
 }
@@ -25,9 +24,9 @@ void update(void) {
 	processInput();
 
 	if (!getLost()) {
-		snakeControls(p_snake);
+		snakeControls();
 		if (frameCount % 15 == 0) {
-			snakeMovement(p_snake);
+			snakeMovement();
 		}
 	} else if (!isScoreLoaded()) {
 		unsigned int highscore = readHighScore();
@@ -53,8 +52,8 @@ void draw(void) {
 			DrawLine(0, y * SCALE, GRID_SIZE * SCALE, y * SCALE, GRID_COLOR);
 		}
 	
-		foodDraw(getFoodPosition());
-		snakeDraw(getSnakeBody());
+		foodDraw();
+		snakeDraw();
 
 		DrawText(getScoreStr(), 0.25 * SCALE, 0.25 * SCALE, 1 * SCALE, TEXT_COLOR);
 		

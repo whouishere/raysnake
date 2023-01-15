@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 // draws and updates food position. (drawing context must be open)
-void foodDraw(Vector2* food);
+void foodDraw(void);
 
 // returns a pointer to the Vector2 food position
 Vector2* getFoodPosition(void);
