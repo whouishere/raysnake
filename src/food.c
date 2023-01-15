@@ -30,6 +30,7 @@ void foodDraw(Vector2* food) {
 		newFood.x = GetRandomValue(1, GRID_SIZE - 2);
 		newFood.y = GetRandomValue(1, GRID_SIZE - 2);
 		
+		// TODO: write test on how many times this happens
 		// if food is found at the same spot as before, randomize it again.
 		if (newFood.x == food->x && newFood.y == food->y) {
 			foodDraw(food);

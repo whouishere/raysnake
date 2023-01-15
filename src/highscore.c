@@ -1,33 +1,28 @@
 #include "highscore.h"
 
-#include <errno.h>
+#include "raylib.h"
+
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
 unsigned int readHighScore(void) {
-	FILE *fptr;
-	fptr = fopen(SAVE_FILE, "r");
-	if (!fptr) {
-		fprintf(stderr, "Couldn't open \"%s\": %s\n", SAVE_FILE, strerror(errno));
-		return 0;
-	}
+	const char* file_str = LoadFileText(SAVE_FILE);
 
-	unsigned int score;
-	fscanf(fptr, "%u", &score);
-	fclose(fptr);
-
-	return score;
+	return (strtoul(file_str, NULL, 10));
 }
 
 void saveHighScore(unsigned int score) {
-	FILE *fptr;
-	// TODO: save on the games' directory, and not where the user is executing it from.
-	fptr = fopen(SAVE_FILE, "w");
-	if (!fptr) {
-		fprintf(stderr, "Couldn't open \"%s\": %s\n", SAVE_FILE, strerror(errno));
-		return;
+	const int len = snprintf(NULL, 0, "%u", score);
+	char data_buffer[len + 1];
+
+	const int written = snprintf(data_buffer, len + 1, "%u", score);
+	if (written != len) {
+		TraceLog(LOG_ERROR, "Couldn't convert score to string.");
 	}
 
-	fprintf(fptr, "%u", score);
-	fclose(fptr);
+	// TODO: save on the games' directory, and not where the user is executing it from.
+	// <https://stackoverflow.com/a/34271901/13959383>
+	if (!SaveFileText(SAVE_FILE, data_buffer)) {
+		TraceLog(LOG_ERROR, "Failed to write to save file.");
+	}
 }

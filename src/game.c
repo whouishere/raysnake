@@ -5,8 +5,10 @@
 #include "game.h"
 #include "highscore.h"
 
+#define SCORE_BUFFER 5
+
 unsigned int score;
-char scoreStr[5];
+char scoreStr[SCORE_BUFFER];
 bool lost;
 bool newRecord = false;
 
@@ -24,7 +26,7 @@ bool getLost(void) {
 
 void setScore(unsigned int newScore) {
 	score = newScore;
-	sprintf(scoreStr, "%u", getScore());
+	snprintf(scoreStr, SCORE_BUFFER, "%u", getScore());
 }
 
 void setLost(bool newLost) {
@@ -39,8 +41,11 @@ void lostDraw(void) {
 	lostText.x = MeasureText(LOST_TEXT, lostFont);
 	lostText.y = lostFont;
 
+	// saves/loads high score save
 	if (!newRecord) {
 		if (FileExists(SAVE_FILE)) {
+			// FIXME: save file is read on every frame if
+			// there's not a new record. nasty.
 			unsigned int highscore = readHighScore();
 			if (score > highscore) {
 				saveHighScore(score);
