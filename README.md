@@ -7,6 +7,7 @@ Simple snake game made with [raylib][raylib]!
 - multi-threaded
 - more flexible grid and graphics
 - gameplay twist
+- web browser support
 
 ## Building
 ### Requirements
