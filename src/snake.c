@@ -55,14 +55,21 @@ void snakeMovement(void) {
 		snake.length++;
 	}
 	
-	// move snake body
+	// move snake body (but not the head, yet)
 	for (int i = snake.length - 1; i > 0; i--) {
+		// since we are already looping through the snake body, check collision with itself
+		if (snake.pos[0].x == snake.pos[i].x && snake.pos[0].y == snake.pos[i].y) {
+			setLost(true);
+			return; // stop moving
+		}
+
 		snake.pos[i].x = snake.pos[i - 1].x;
 		snake.pos[i].y = snake.pos[i - 1].y;
 		
 		// if food is somewhere inside the snake body, make it roll the food again (but not eat it)
-		if (snake.pos[i].x == food->x && snake.pos[i].y == food->y)
+		if (snake.pos[i].x == food->x && snake.pos[i].y == food->y) {
 			setHasFood(true);
+		}
 	}
 	
 	// move snake head
