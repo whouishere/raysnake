@@ -12,6 +12,7 @@ set(RELEASE_FLAGS -Os)
 set(DEBUG_FLAGS   -Wall -Wextra -Wstrict-prototypes -pedantic)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+set(SHELL_FILE ${PROJECT_SOURCE_DIR}/src/minshell.html)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
@@ -27,7 +28,12 @@ target_link_libraries(${PROJECT_NAME} raylib)
 
 # Web and OSX configuration also taken from raylib's CMake project example
 if (EMSCRIPTEN)
-  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s ASYNCIFY")
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} \
+  							  -s USE_GLFW=3 \
+							  -s ASSERTIONS=1 \
+							  -s WASM=1 \
+							  -s ASYNCIFY \
+							  --shell-file ${SHELL_FILE}")
   set(CMAKE_EXECUTABLE_SUFFIX ".html") # This line is used to set your executable to build with the emscripten html template so that you can directly open it.
 endif ()
 
