@@ -25,12 +25,11 @@ target_link_options(${PROJECT_NAME} PRIVATE "-static")
 
 target_link_libraries(${PROJECT_NAME} raylib)
 
-# Web and OSX configurations also taken from raylib's CMake project example
-# Web Configurations
-if (${PLATFORM} STREQUAL "Web")
-  # Tell Emscripten to build an example.html file.
-  set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html")
-endif()
+# Web and OSX configuration also taken from raylib's CMake project example
+if (EMSCRIPTEN)
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s ASYNCIFY")
+  set(CMAKE_EXECUTABLE_SUFFIX ".html") # This line is used to set your executable to build with the emscripten html template so that you can directly open it.
+endif ()
 
 # Checks if OSX and links appropriate frameworks (Only required on MacOS)
 if (APPLE)
