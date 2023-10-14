@@ -5,6 +5,8 @@
 
 #if defined(PLATFORM_WEB)
 #include <emscripten/emscripten.h>
+#else
+#include "icon.h"
 #endif
 
 // used for emscripten integration
@@ -27,10 +29,22 @@ int main(void) {
 	emscripten_set_main_loop(UpdateDrawFrame, 0, 1);
 #else
 	// desktop specific window setup
-	int current_monitor = GetCurrentMonitor();
-	SetWindowPosition((GetMonitorWidth(current_monitor) / 2) - (WIN_SIZE / 2), 
-					  (GetMonitorHeight(current_monitor) / 2) - (WIN_SIZE / 2));
-	SetTargetFPS(60);
+
+	{
+		Image icon = {
+			.data = ICON_DATA,
+			.width = ICON_WIDTH,
+			.height = ICON_HEIGHT,
+			.mipmaps = 1,
+			.format = ICON_FORMAT
+		};
+		SetWindowIcon(icon);
+
+		const int current_monitor = GetCurrentMonitor();
+		SetWindowPosition((GetMonitorWidth(current_monitor) / 2) - (WIN_SIZE / 2), 
+						(GetMonitorHeight(current_monitor) / 2) - (WIN_SIZE / 2));
+		SetTargetFPS(60);
+	}
 
 	while (!WindowShouldClose()) {
 		// main loop

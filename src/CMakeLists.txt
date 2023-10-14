@@ -5,6 +5,7 @@ set(SOURCE_FILES
     snake.h      snake.c
 	highscore.h  highscore.c
     drawing.h    drawing.c
+	icon.h
     main.c
 )
 
@@ -14,7 +15,7 @@ set(DEBUG_FLAGS   -Wall -Wextra -Wstrict-prototypes -pedantic)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 set(SHELL_FILE ${PROJECT_SOURCE_DIR}/src/minshell.html)
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} snake.rc)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/src")
 
