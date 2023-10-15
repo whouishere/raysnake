@@ -3,9 +3,9 @@ set(SOURCE_FILES
     input.h      input.c
     food.h       food.c
     snake.h      snake.c
-	highscore.h  highscore.c
+    highscore.h  highscore.c
     drawing.h    drawing.c
-	icon.h
+    icon.h
     main.c
 )
 
@@ -30,12 +30,15 @@ target_link_libraries(${PROJECT_NAME} raylib)
 # Web and OSX configuration also taken from raylib's CMake project example
 if (EMSCRIPTEN)
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} \
-  							  -s USE_GLFW=3 \
-							  -s ASSERTIONS=1 \
-							  -s WASM=1 \
-							  -s ASYNCIFY \
-							  --shell-file ${SHELL_FILE}")
-  set(CMAKE_EXECUTABLE_SUFFIX ".html") # This line is used to set your executable to build with the emscripten html template so that you can directly open it.
+                              -s USE_GLFW=3 \
+                              -s ASSERTIONS=1 \
+                              -s WASM=1 \
+                              -s ASYNCIFY \
+                              --shell-file ${SHELL_FILE}")
+
+  set(CMAKE_EXECUTABLE_SUFFIX ".html")
+  configure_file(${PROJECT_SOURCE_DIR}/assets/icon.ico ${PROJECT_BINARY_DIR}/favicon.ico COPYONLY)
+  configure_file(${PROJECT_SOURCE_DIR}/assets/icon.png ${PROJECT_BINARY_DIR}/icon.png COPYONLY)
 endif ()
 
 # Checks if OSX and links appropriate frameworks (Only required on MacOS)
