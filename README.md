@@ -2,6 +2,8 @@
 
 Simple snake game made with [raylib][raylib]!
 
+You can play RaySnake from your browser on https://whou.codeberg.page/raysnake.
+
 ### TODO:
 - multi-threaded
 - more flexible grid and graphics
@@ -22,12 +24,12 @@ cmake --build build/
 
 If you want a debug build, pass `-DCMAKE_BUILD_TYPE=Debug` to the first `cmake` command.
 
-If you don't have raylib 4.2 installed for CMake, it will fetch the raylib source from GitHub and build it automatically for you.
+If you don't have raylib 4.5 installed for CMake, it will fetch the raylib source from GitHub and build it automatically for you.
 
 Then the built binary will be on the `build` directory.
 
 ### Web build
-There's also experimental compatibility for the web available. To build a target for browsers, first follow [Emscripten][emscripten]'s install instructions and use a slightly different `cmake` command:
+It's also possible to play the game on the browser with WebAssembly. To build a target for browsers, first follow [Emscripten][emscripten]'s install instructions and use a slightly different `cmake` command:
 
 ```
 emcmake cmake -B build/emscripten -S . -DPLATFORM=Web
