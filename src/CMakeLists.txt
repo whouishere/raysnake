@@ -14,6 +14,7 @@ set(DEBUG_FLAGS   -Wall -Wextra -Wstrict-prototypes -pedantic)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 set(SHELL_FILE ${PROJECT_SOURCE_DIR}/src/minshell.html)
+set(JS_FILE ${PROJECT_SOURCE_DIR}/src/library.js)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} snake.rc)
 
@@ -33,6 +34,7 @@ if (EMSCRIPTEN)
                               -s ASSERTIONS=1 \
                               -s WASM=1 \
                               -s ASYNCIFY \
+                              --js-library ${JS_FILE} \
                               --shell-file ${SHELL_FILE}")
 
   set(CMAKE_EXECUTABLE_SUFFIX ".html")

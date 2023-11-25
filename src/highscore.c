@@ -11,6 +11,7 @@ bool isScoreLoaded(void) {
 	return scoreLoaded;
 }
 
+#if !defined(PLATFORM_WEB)
 unsigned int readHighScore(void) {
 	scoreLoaded = true;
 
@@ -22,7 +23,11 @@ unsigned int readHighScore(void) {
 
 	return (strtoul(file_str, NULL, 10));
 }
+#else
+extern unsigned int readHighScore(void);
+#endif
 
+#if !defined(PLATFORM_WEB)
 void saveHighScore(unsigned int score) {
 	const int len = snprintf(NULL, 0, "%u", score);
 	char data_buffer[len + 1];
@@ -38,3 +43,6 @@ void saveHighScore(unsigned int score) {
 		TraceLog(LOG_ERROR, "Failed to write to save file.");
 	}
 }
+#else
+extern void saveHighScore(unsigned int score);
+#endif
