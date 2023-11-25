@@ -23,7 +23,6 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE "DEBUG=$<IF:$<CONFIG:Debug>,1
 target_compile_options(${PROJECT_NAME} PRIVATE "$<$<CONFIG:Debug>:${DEBUG_FLAGS}>")
 target_compile_options(${PROJECT_NAME} PRIVATE "$<$<CONFIG:Release>:${RELEASE_FLAGS}>")
 target_link_options(${PROJECT_NAME} PRIVATE "$<$<CONFIG:Release>:-mwindows>") # don't use the terminal
-target_link_options(${PROJECT_NAME} PRIVATE "-static")
 
 target_link_libraries(${PROJECT_NAME} raylib)
 
