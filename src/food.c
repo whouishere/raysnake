@@ -48,7 +48,7 @@ void foodDraw(void) {
 	}
 
 	DrawRectangle(food.x * SCALE, 
-				  food.y * SCALE, 
+				  food.y * SCALE + 1, // off-by-one graphical bug
 				  1 * SCALE - 1, 
 				  1 * SCALE - 1, 
 				  FOOD_COLOR);

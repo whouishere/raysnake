@@ -22,7 +22,7 @@ SnakeBody* getSnakeBody(void) {
 void snakeDraw(void) {
 	for (int i = 0; i < snake.length; i++) {
 		DrawRectangle(snake.pos[i].x * SCALE, 
-					  snake.pos[i].y * SCALE, 
+					  snake.pos[i].y * SCALE + 1, // off-by-one graphical bug
 					  1 * SCALE - 1, 
 					  1 * SCALE - 1, 
 					  SNAKE_COLOR);
