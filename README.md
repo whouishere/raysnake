@@ -44,6 +44,34 @@ python -m http.server -d build/emscripten
 
 The game will now be available on `http://localhost:8000/raysnake.html`.
 
+### Android build
+There's also an experimental build (__tested on Linux only__) for Android. You must first do a CMake build or copy the raylib 4.5 source code somewhere and have at least [OpenJDK](https://openjdk.java.net/) 18 installed.
+
+Then install the [command line tools](https://developer.android.com/studio/#command-tools) of the Android SDK inside the `android/sdk` folder and the [Android NDK](https://developer.android.com/ndk/downloads/) inside the `android/ndk` folder.
+
+Now you might install some of the tools needed to build Android applications with Android SDK's `sdkmanager`:
+
+```
+cd android/sdk/cmdline-tools/bin
+./sdkmanager --update --sdk_root=../..
+./sdkmanager --install "build-tools;29.0.3" --sdk_root=../..
+./sdkmanager --install "platform-tools" --sdk_root=../..
+./sdkmanager --install "platforms;android-29" --sdk_root=../..
+cd ../../../..
+```
+
+If you think you missed something, you can use the [raylib wiki](https://github.com/raysan5/raylib/wiki/Working-for-Android-(on-Linux)) as reference.
+
+Now you can gladly run the `android_build.sh` script, build the APK, and automatically get the game installed on the Android device connected to the computer!
+
+If you copied the raylib source code somewhere, run the script specifying the repo path with `RAYLIB_REPO`:
+
+```
+RAYLIB_REPO=<path to raylib here> ./build_android.sh
+```
+
+---
+
 Have fun! :)
 
 ## License

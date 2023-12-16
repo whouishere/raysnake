@@ -1,2 +1,15 @@
+# desktop/web build output
 /build
+
+# android build output
+/android/lib
+/android/ndk
+/android/sdk
+/android/build/dex
+/android/build/obj
+/android/build/res
+R.java
+game.apk
+
+# game user files
 score.sav
