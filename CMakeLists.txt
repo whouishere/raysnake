@@ -14,7 +14,6 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
   FetchContent_Declare(
     raylib
     URL https://github.com/raysan5/raylib/archive/refs/tags/4.5.0.tar.gz
-	DOWNLOAD_EXTRACT_TIMESTAMP True
   )
   FetchContent_GetProperties(raylib)
   if (NOT raylib_POPULATED) # Have we downloaded raylib yet?

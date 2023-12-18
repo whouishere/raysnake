@@ -16,9 +16,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 set(SHELL_FILE ${PROJECT_SOURCE_DIR}/src/minshell.html)
 set(JS_FILE ${PROJECT_SOURCE_DIR}/src/library.js)
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} snake.rc)
-
-target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/src")
+if (${PLATFORM} MATCHES "Android")
+  add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
+  # https://github.com/android/ndk/issues/381#issuecomment-309662037
+  set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -u ANativeActivity_onCreate")
+else()
+  add_executable(${PROJECT_NAME} ${SOURCE_FILES} snake.rc)
+  target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/src")
+endif()
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE "DEBUG=$<IF:$<CONFIG:Debug>,1,0>")
 target_compile_options(${PROJECT_NAME} PRIVATE "$<$<CONFIG:Debug>:${DEBUG_FLAGS}>")
