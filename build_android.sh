@@ -5,6 +5,9 @@ RAYLIB_REPO="$ROOT_DIR/build/_deps/raylib-src"
 RAYLIB_SRC="$RAYLIB_REPO/src"
 GAME_PACKAGE_PATH="com/willian/raysnake"
 
+DEBUG_FLAGS="-Wall -Wextra -Wstrict-prototypes -pedantic -DDEBUG=1"
+RELEASE_FLAGS="-Os"
+
 # $1 = ABI
 # $2 = arch
 # to be executed inside $RAYLIB_SRC
@@ -36,8 +39,14 @@ BUILD_TOOLS=android/sdk/build-tools/29.0.3
 TOOLCHAIN=android/ndk/toolchains/llvm/prebuilt/linux-x86_64
 NATIVE_APP_GLUE=android/ndk/sources/android/native_app_glue
 
-FLAGS="-ffunction-sections -funwind-tables -fstack-protector-strong -fPIC -Wall \
-	-Wformat -Werror=format-security -no-canonical-prefixes \
+if [ -z ${DEBUG+x} ]; then
+	DEBUG_FLAGS=""
+else
+	RELEASE_FLAGS=""
+fi
+
+FLAGS="-ffunction-sections -funwind-tables -fstack-protector-strong -fPIC -no-canonical-prefixes \
+	${DEBUG_FLAGS} ${RELEASE_FLAGS} \
 	-DANDROID -DPLATFORM_ANDROID -D__ANDROID_API__=29"
 
 INCLUDES="-I. -Iinclude -I../include -I$RAYLIB_SRC -I$NATIVE_APP_GLUE -I$TOOLCHAIN/sysroot/usr/include"
